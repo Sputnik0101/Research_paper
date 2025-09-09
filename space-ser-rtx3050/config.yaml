@@ -1,0 +1,32 @@
+seed: 42
+model_name: "facebook/wav2vec2-base"
+sample_rate: 16000
+
+# Emotion labels (RAVDESS-style 8-class). You can switch to 4-class for IEMOCAP.
+labels: ["neutral","calm","happy","sad","angry","fearful","disgust","surprised"]
+
+train:
+  batch_size: 1                       # batch per device (RTX 3050 4GB friendly)
+  num_epochs: 6
+  learning_rate: 3.0e-5
+  warmup_ratio: 0.1
+  gradient_accumulation_steps: 8      # effective batch size = 8
+  fp16: true                          # mixed precision to save memory
+  gradient_checkpointing: true        # reduce memory footprint
+  freeze_encoder: true                # start with frozen encoder
+  unfreeze_last_n_layers: 2           # and unfreeze last N layers for light FT
+
+augment:
+  enable: true
+  p_bandlimit: 0.9
+  p_noise: 0.7
+  p_packet_loss: 0.4
+  snr_db_range: [0, 15]
+  bandpass_hz: [300, 3400]
+  packet_loss_ms: [30, 120]
+  resample_to_hz: 8000
+
+paths:
+  data_root: "./data"
+  metadata_csv: "./data/metadata.csv"
+  output_dir: "./outputs"

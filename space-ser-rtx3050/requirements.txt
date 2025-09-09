@@ -1,0 +1,14 @@
+torch>=2.2.0
+torchaudio>=2.2.0
+transformers>=4.42.0
+datasets>=2.20.0
+soundfile>=0.12.1
+numpy>=1.26.0
+scikit-learn>=1.4.0
+matplotlib>=3.8.0
+pandas>=2.2.0
+pyyaml>=6.0.1
+tqdm>=4.66.0
+# optional (mic + ROS2; ROS2 is generally Linux-only)
+pyaudio>=0.2.14
+rclpy>=3.3.10 ; platform_system!="Windows"
