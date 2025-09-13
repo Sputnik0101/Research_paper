@@ -1,0 +1,13 @@
+# Tuning knobs
+pdf_glob: "*.pdf"
+min_section_len: 200         # min chars to keep a section
+chunk:
+  max_tokens: 350            # approx tokens per chunk
+  overlap_tokens: 60         # sliding overlap
+  use_sentence_merge: true   # sentence-aware chunking
+embedding:
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+storage_dir: "./storage"
+sqlite_path: "./storage/paper_kb.sqlite"
+chroma_dir: "./storage/chroma"
+collection_name: "papers_v1"

@@ -1,0 +1,16 @@
+# Core parsing & NLP
+pymupdf>=1.24.2
+nltk>=3.9.1
+regex>=2024.5.15
+pyyaml>=6.0.2
+
+# Embeddings + vector store
+sentence-transformers>=3.0.1
+chromadb>=0.5.5
+
+# DB
+sqlite-utils>=3.36
+
+# CLI niceties
+tqdm>=4.66.4
+typer[all]>=0.12.3
